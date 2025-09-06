@@ -6,7 +6,10 @@ import { MdOutlinePassword } from "react-icons/md";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaUserTag } from "react-icons/fa6";
 import { RxAvatar } from "react-icons/rx";
+import { Link, useNavigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 const Signup = () => {
+    const navigate =useNavigate()
   let [state, setState] = useState({
     Username: "",
     email: "",
@@ -14,6 +17,7 @@ const Signup = () => {
     role:"",
     Url:""
   });
+  
   let [showPassword, setShowPassword] = useState(false);
   let { Username, email, Password,role,Url } = state;
   let handleChange = (e) => {
@@ -27,6 +31,7 @@ const Signup = () => {
   let submit = (e) => {
     e.preventDefault();
     console.log(state);
+     navigate("/signin");
   };
   return (
     <>
@@ -47,7 +52,7 @@ const Signup = () => {
                     type="text"
                     name="Username"
                     value={Username}
-                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
                     placeholder="        Enter Name"
                     onChange={handleChange}
                     id=""
@@ -64,7 +69,7 @@ const Signup = () => {
                     type="email"
                     name="email"
                     value={email}
-                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
                     placeholder="        Enter Email"
                     onChange={handleChange}
                     id=""
@@ -81,7 +86,7 @@ const Signup = () => {
                     type={showPassword ? "text" : "password"}
                     name="Password"
                     value={Password}
-                    className="border-[#262626] w-[91%] h-10 rounded-md text-[white] bg-[#262626]"
+                    className="border-[#262626] w-[91%] h-10 rounded-md px-5 text-[white] bg-[#262626]"
                     placeholder="        Enter Password"
                     onChange={handleChange}
                     id=""
@@ -89,7 +94,7 @@ const Signup = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-10 top-1/2 rounded-md -translate-y-1/2 text-gray-400"
+                    className="absolute right-10 top-1/2 rounded-md  -translate-y-1/2 text-gray-400"
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
@@ -105,7 +110,7 @@ const Signup = () => {
                   name="role"
                 value={role}
                 onChange={handleChange}
-             className="w-[91%] h-10 border border-gray-600 rounded-md bg-[#262626] text-white px-3 ">
+             className="w-[91%] h-10 border border-gray-600 px-10 rounded-md bg-[#262626] text-white px-3 ">
         <option value="">  -- Select Role --</option>
         <option value="admin">Admin</option>
         <option value="student">Student</option>
@@ -122,13 +127,13 @@ const Signup = () => {
                     type="url"
                     name="Url"
                     value={Url}
-                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
                     placeholder="        Enter Avatar Url"
                     onChange={handleChange}
                     id=""
                   />
                 </div>
-                <button onClick={submit} className="font-bold h-10 w-[91%] rounded-md bg-[#FFB900]">Sign Up</button>
+              <button onClick={submit} className="font-bold h-10 w-[91%] rounded-md bg-[#FFB900]">Sign Up</button>
                 <h1 className="text-[12px] text-center">Already have an account?<span className="text-[#F16F1D]">Login</span></h1>
               </h1>
 
