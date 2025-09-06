@@ -47,8 +47,8 @@ const Signup = () => {
                     type="text"
                     name="Username"
                     value={Username}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
-                    placeholder="Enter Name"
+                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    placeholder="        Enter Name"
                     onChange={handleChange}
                     id=""
                   />
@@ -64,8 +64,8 @@ const Signup = () => {
                     type="email"
                     name="email"
                     value={email}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
-                    placeholder="Enter Email"
+                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    placeholder="        Enter Email"
                     onChange={handleChange}
                     id=""
                   />
@@ -81,8 +81,8 @@ const Signup = () => {
                     type={showPassword ? "text" : "password"}
                     name="Password"
                     value={Password}
-                    className="border-[#262626] w-[91%] h-10 rounded-md px-10 text-[white] bg-[#262626]"
-                    placeholder="Enter Password"
+                    className="border-[#262626] w-[91%] h-10 rounded-md text-[white] bg-[#262626]"
+                    placeholder="        Enter Password"
                     onChange={handleChange}
                     id=""
                   />
@@ -105,8 +105,8 @@ const Signup = () => {
                   name="role"
                 value={role}
                 onChange={handleChange}
-             className="w-[91%] h-10 border border-gray-600 px-10 rounded-md bg-[#262626] text-white px-3 ">
-        <option value="">-- Select Role --</option>
+             className="w-[91%] h-10 border border-gray-600 rounded-md bg-[#262626] text-white px-3 ">
+        <option value="">  -- Select Role --</option>
         <option value="admin">Admin</option>
         <option value="student">Student</option>
       </select>
@@ -122,8 +122,8 @@ const Signup = () => {
                     type="url"
                     name="Url"
                     value={Url}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
-                    placeholder="Enter Avatar Url"
+                    className="border-[#262626] w-[91%] rounded-md h-10 text-[white] bg-[#262626]"
+                    placeholder="        Enter Avatar Url"
                     onChange={handleChange}
                     id=""
                   />
