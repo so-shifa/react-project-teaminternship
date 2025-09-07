@@ -23,8 +23,8 @@ const Signin = () => {
   let handleSubmit = (e) => {
     e.preventDefault();
     console.log(formdata);
+    
    // toastify + navigate to landing page
-    if (email && password) {
       // ✅ success popup
       toast.success("Login Successful!", {
         position: "top-right",
@@ -33,18 +33,9 @@ const Signin = () => {
 
       setTimeout(() => {
         navigate("/landing");
-      }, 100); // wait for toast before navigating
-    } else {
-      toast.error("Please fill all fields!", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-    }
-
+      }, 2000); // wait for toast before navigating
     setFormdata({ email: "", password: "" });
-
-
-  };
+    }
 
   return (
     <div className="flex justify-center items-center h-screen bg-black">
@@ -105,6 +96,8 @@ const Signin = () => {
           </Link>
         </p>
       </div>
+{/* pop up 👇*/}
+      <ToastContainer />
     </div>
   );
 };
