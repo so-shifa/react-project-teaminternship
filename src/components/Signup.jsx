@@ -9,17 +9,17 @@ import { RxAvatar } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 const Signup = () => {
-    const navigate =useNavigate()
+  const navigate = useNavigate();
   let [state, setState] = useState({
     Username: "",
     email: "",
     Password: "",
-    role:"",
-    Url:""
+    role: "",
+    Url: "",
   });
-  
+
   let [showPassword, setShowPassword] = useState(false);
-  let { Username, email, Password,role,Url } = state;
+  let { Username, email, Password, role, Url } = state;
   let handleChange = (e) => {
     let { name, value } = e.target;
     setState({
@@ -31,16 +31,16 @@ const Signup = () => {
   let submit = (e) => {
     e.preventDefault();
     console.log(state);
-     navigate("/signin");
+    navigate("/signin");
   };
   return (
     <>
-      <section className=" h-150 flex justify-center items-center ">
-        <h1 className=" h-147 w-100 rounded-2xl bg-[#111111] items-center flex flex-col gap-3 justify-center ">
+      <section className=" h-150 flex justify-center items-center bg-black text-white">
+        <h1 className=" h-147 w-100 rounded-xl bg-[#111111] items-center flex flex-col gap-3 justify-center ">
           <h1 className="text-[#FFB900]  font-bold text-[20px]">Sign Up</h1>
-          <div className="border-2 border-[#F16F1D] w-85 h-130 flex justify-center items-center rounded-2xl text-[white] ">
+          <div className="border-2 border-yellow-500 w-85 h1-30 flex justify-center items-center rounded-2xl text-[white] ">
             <form action="">
-              <h1 className="flex flex-col  w-70 h-120 gap-2">
+              <h1 className="flex flex-col  w-70 h1-20 gap-2 py-4">
                 <label htmlFor="" className="font-semibold text-[gray]">
                   Enter Name
                 </label>
@@ -52,8 +52,8 @@ const Signup = () => {
                     type="text"
                     name="Username"
                     value={Username}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
-                    placeholder="        Enter Name"
+                    className="border-[#262626] w-[100%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
+                    placeholder=" Enter Name"
                     onChange={handleChange}
                     id=""
                   />
@@ -69,8 +69,8 @@ const Signup = () => {
                     type="email"
                     name="email"
                     value={email}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
-                    placeholder="        Enter Email"
+                    className="border-[#262626] w-[100%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
+                    placeholder="Enter Email"
                     onChange={handleChange}
                     id=""
                   />
@@ -86,8 +86,8 @@ const Signup = () => {
                     type={showPassword ? "text" : "password"}
                     name="Password"
                     value={Password}
-                    className="border-[#262626] w-[91%] h-10 rounded-md px-5 text-[white] bg-[#262626]"
-                    placeholder="        Enter Password"
+                    className="border-[#262626] w-[100%] h-10 rounded-md px-10 text-[white] bg-[#262626]"
+                    placeholder="Enter Password"
                     onChange={handleChange}
                     id=""
                   />
@@ -104,17 +104,18 @@ const Signup = () => {
                 </label>
                 <div className="relative text-white">
                   {role === "" && (
-                    <FaUserTag className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <FaUserTag className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
                   )}
-                   <select
-                  name="role"
-                value={role}
-                onChange={handleChange}
-             className="w-[91%] h-10 border border-gray-600 px-10 rounded-md bg-[#262626] text-white px-3 ">
-        <option value="">  -- Select Role --</option>
-        <option value="admin">Admin</option>
-        <option value="student">Student</option>
-      </select>
+                  <select
+                    name="role"
+                    value={role}
+                    onChange={handleChange}
+                    className="w-[100%] h-10 border border-gray-600 px-10 rounded-md bg-[#262626] text-white "
+                  >
+                    <option value="">-- Select Role --</option>
+                    <option value="admin">Admin</option>
+                    <option value="student">Student</option>
+                  </select>
                 </div>
                 <label htmlFor="" className="font-semibold text-[gray]">
                   Avatar
@@ -127,17 +128,26 @@ const Signup = () => {
                     type="url"
                     name="Url"
                     value={Url}
-                    className="border-[#262626] w-[91%] rounded-md h-10 px-5 text-[white] bg-[#262626]"
-                    placeholder="        Enter Avatar Url"
+                    className="border-[#262626] w-[100%] rounded-md h-10 px-10 text-[white] bg-[#262626]"
+                    placeholder="Enter Avatar Url"
                     onChange={handleChange}
                     id=""
                   />
                 </div>
-              <button onClick={submit} className="font-bold h-10 w-[91%] rounded-md bg-[#FFB900]">Sign Up</button>
-                <h1 className="text-[12px] text-center">Already have an account?<span className="text-[#F16F1D]">Login</span></h1>
+                <button
+                  onClick={submit}
+                  className="font-bold h-10 w-[100%] rounded-md bg-[#FFB900]"
+                >
+                  Sign Up
+                </button>
+                 {/* Go to Login */}
+              <p className="text-[15px] pl-5 mt-2">
+                Already have an account?{" "}
+                <Link to="/Signin" className="text-[#F16F1D] hover:underline">
+                  Login
+                </Link>
+              </p>
               </h1>
-
-              
             </form>
           </div>
         </h1>

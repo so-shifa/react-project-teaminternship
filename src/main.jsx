@@ -1,12 +1,9 @@
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { RouterProvider } from "react-router-dom";
+import routes from "./routing/Routes";
 
-import { RouterProvider } from 'react-router-dom'
-import routes from "./routing/Routes"
-
-createRoot(document.getElementById('root')).render(
-  <RouterProvider router={routes}>
-
-  </RouterProvider>
-)
+createRoot(document.getElementById("root")).render(
+  <RouterProvider router={routes}></RouterProvider>
+);

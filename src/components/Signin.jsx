@@ -1,60 +1,112 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
+import { FaLock } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signin = () => {
+  let navigate = useNavigate();
 
-let navigate=useNavigate();
+  let [formdata, setFormdata] = useState({
+    email: "",
+    password: "",
+  });
 
-let[formdata,setFormdata]=useState(
-  {
-    email:"",
-    password:"",
-  }
-)
+  let { email, password } = formdata;
 
-let {email,password}=formdata;
+  let handleChange = (e) => {
+    let { name, value } = e.target;
+    setFormdata({ ...formdata, [name]: value });
+  };
 
-let handleChange=(e)=>{
-    let{name,value}=e.target;
-    setFormdata({ ...formdata, [name]:value});
-}
-
-let handleSubmit=(e)=>{
-    e.preventDefault()
+  let handleSubmit = (e) => {
+    e.preventDefault();
     console.log(formdata);
-    navigate("/ENTERTHEPATHHH")
-    setFormdata({...formdata, email:"", password:""})
+   // toastify + navigate to landing page
+    if (email && password) {
+      // ✅ success popup
+      toast.success("Login Successful!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
 
-}
+      setTimeout(() => {
+        navigate("/landing");
+      }, 100); // wait for toast before navigating
+    } else {
+      toast.error("Please fill all fields!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    }
+
+    setFormdata({ email: "", password: "" });
+
+
+  };
 
   return (
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="bg-[#111] text-white rounded-xl shadow-lg border border-yellow-500 w-[380px] p-8">
+        <h1 className="text-2xl font-bold text-center mb-6 text-yellow-400">
+          Sign In
+        </h1>
 
-   <>
-   
-    <div className="h-[450px] w-[450px] border-2 bg-red-300 flex flex-col justify-center items-center absolute left-120 top-20">
-    <h1 className="text-[24px]">SignIn</h1> <br />
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          {/* Email */}
+          <div>
+            <label className="text-sm mb-1 block">Email</label>
+            <div className="flex items-center bg-[#1c1c1c] rounded-lg border border-gray-700 px-3">
+              <MdEmail className="text-gray-400 mr-2" />
+              <input
+                className="w-full bg-transparent py-2 focus:outline-none text-gray-200 placeholder-gray-500"
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                onChange={handleChange}
+                value={email}
+                required
+              />
+            </div>
+          </div>
 
-   <form onSubmit={handleSubmit} className="flex flex-col">
+          {/* Password */}
+          <div>
+            <label className="text-sm mb-1 block">Password</label>
+            <div className="flex items-center bg-[#1c1c1c] rounded-lg border border-gray-700 px-3">
+              <FaLock className="text-gray-400 mr-2" />
+              <input
+                className="w-full bg-transparent py-2 focus:outline-none text-gray-200 placeholder-gray-500"
+                type="password"
+                placeholder="Enter password"
+                name="password"
+                onChange={handleChange}
+                value={password}
+                required
+              />
+            </div>
+          </div>
 
-    <label htmlFor="">Email</label>
-    <input className="border-2 w-[300px] bg-purple-300 " type="email" placeholder="enter email" 
-     name='email' onChange={handleChange} value={formdata.email}/>
+          {/* Button */}
+          <button
+            type="submit"
+            className="bg-yellow-400 text-black font-semibold py-2 rounded-lg hover:bg-yellow-500 transition"
+          >
+            Sign In
+          </button>
+        </form>
 
-    <label htmlFor="">Password</label>
-    <input className="border-2 w-[300px] bg-purple-300" type="password" placeholder="enter password"
-    name='password' onChange={handleChange}  value={formdata.password}/> <br />
-
-    <button className="border-2 p-1 w-[100px] bg-purple-300">Submit</button>
-    <p>Don't have an account? </p> 
-
-   </form>
+        {/* Register */}
+        <p className="text-center text-sm mt-6">
+          don’t have an account?{" "}
+          <Link to="/" className="text-yellow-400 hover:underline">
+            Register
+          </Link>
+        </p>
+      </div>
     </div>
-  
-   
-   </>
-    
-  )
-  return 
-}
+  );
+};
 
-export default Signin
+export default Signin;
