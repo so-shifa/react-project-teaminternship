@@ -1,8 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+   <>
+    
+   <section className="border-2 flex justify-end space-x-4 h-[50px] text-[24px] bg-yellow-100">
+     <Link to={"/"}>SignUp</Link>
+    <Link to={"Signin"}>SignIn</Link>
+   </section>
+   </>
   )
 }
 
