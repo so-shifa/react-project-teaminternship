@@ -8,3 +8,4 @@ let routes = createBrowserRouter([
     children: [{}],
   },
 ]);
+export default routes;
